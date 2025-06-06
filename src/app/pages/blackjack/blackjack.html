@@ -1,3 +1,39 @@
-<!-- <ul>
-  <li *ngFor="let card of deck">{{ card.name }} ({{ card.value }})</li>
-</ul> -->
+  
+  <div class="container">
+    <h1>Blackjack Trainer</h1>
+    <div class="game">
+      <div class="table" >
+        <div class="dealer">
+            <h2>Dealer:</h2>
+            <div *ngFor="let card of dealerHand; let id = index" class="cards">
+                <div div class="card">{{ card.suit }} + {{ card.value }}</div>
+            </div>
+            <span>==============================================================</span>
+        </div>
+            <div style="display: grid;grid-template-columns: 1fr;" *ngFor="let hand of hands; let id = index" class="player">
+              <div *ngFor="let card of hand.cards" class="cards">
+                {{ card.suit }} + {{ card.value }}
+              </div>
+              <div class="bet">{{ hand.betAmount }}</div>
+              <div style=" max-width: 20vh;display: grid;grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; gap: 10px;" class="controls">
+                <button *ngIf="hand.state != 'stand'" (click)="Hit(id)" >Hit</button>
+                <button *ngIf="hand.state != 'stand'" (click)="Stand(id)" >Stand</button>
+                <button *ngIf="hand.state != 'stand'" (click)="DoubleDown(id)">Double</button>
+                <button *ngIf="hand.state != 'stand'" (click)="Surrender(id)" >Surrender</button>
+                <!-- <button (click)="Showtable(id)" >Table</button> -->
+                <!-- <button (click)="" >Running count</button> -->
+              </div>   
+      </div>
+  
+      <div style="display: grid;grid-template-columns: 1fr 1fr 1fr 1fr; gap: 5px;">
+        <h5 style="grid-column: span 4">Bet:</h5>
+        <button (click)="bet(200)">200PLN</button>
+        <button (click)="bet(100)">100PLN</button>
+        <button (click)="bet(50)">50PLN</button>
+        <button (click)="bet(25)">25PLN</button>
+      </div>
+      <h4>Bankroll: {{ bankrol }}PLN</h4>
+      
+    </div>
+
+  </div>

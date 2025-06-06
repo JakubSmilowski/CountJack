@@ -8,21 +8,18 @@ import {} from '@angular/common';
 export class Blackjack implements OnInit {
 
   constructor() { }
-
-  deck: Card[] = [];
   
+  deck: Card[] = [];
   shoe: Card[] = [];
-
+  // shoe: Card[] = [];
   playerHand: [] = [];
   dealerHand: [] = [];
 
   ngOnInit(): void {
-    this.initDeck(); 
-    this.shuffleDeck();
-    this.initShoe(4);
+
   }
  
-   initDeck(): void {
+   public initDeck(): Card[] {
     const suits: CardSuit[] = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
     const ranks: CardRank[] = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
 
@@ -32,49 +29,47 @@ export class Blackjack implements OnInit {
         this.deck.push(new Card(suit, rank));
       }
     }
-    console.log(this.deck);
+    return this.deck;
   }
 
 
-  initShoe(numerOfDecks: number) {
+  initShoe(numerOfDecks: number, deck: Card[]) {
     // Logic for initializing the deck
-    // User can chose what deck size there is and what the split percentage is
+    // User can chose what deck size, after that shuffle the deck
 
+    for (let i = 0; i < numerOfDecks; i++) {
+      this.shuffle(this.deck);
+      this.shoe.push(...this.deck);
+    }
+    return this.shoe;
    }
 
-   shuffleDeck() {
+   shuffle(deck: Card[]) {
     // Logic for shuffling the deck
+    deck.sort(() => Math.random() - 0.5);
      
    }
 
-   dealHands() {
-    // Logic for dealing the hands
+   splitShoe(shoe: Card[], splitPercentage: number) {
+    // Logic for splitting the shoe
+    let shoeSplitNumber = 1 - (splitPercentage /100);
+    //Get number of cards in a shoe
+    let shoecount: number = shoe.length-1;
+
+    // calculate how many cards to pop from the shoe
+    let popNumber = shoecount * shoeSplitNumber;
+
+    // pop the cards from the shoe
+
+    for (let i = 0 ; i < Math.floor(popNumber); i++) {
+      shoe.pop();
+    }
+
+    console.log(shoe.length);
+
+    return shoe;
    }
 
-   hit() {
-    // Logic for hitting or standing
-   }
-
-   stand() {
-    // Logic for hitting or standing
-   }
-
-   split() {
-    // Logic for splitting
-   }
-
-   doubleDown() {
-    // Logic for doubling down
-   }
-
-   callculateWinLoss() {
-    // Logic for calculating the win
-   }
-
-   countCards(playerHand: number[], dealerHand: number[]) {
-    // Logic for counting the cards
-
-   }  
    
 
 
