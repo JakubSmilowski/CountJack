@@ -14,6 +14,7 @@ import { Hand } from '../../models/hand';
 export class BlackJackComponent implements OnInit {
   deck: Card[] = [];
   shoe: Card[] = [];
+  cardsRemaining: number = 0;
   playerHand: Hand = new Hand([], 0);
   dealerHand: Card[] = [];
   dealerHandValue = 0;
@@ -45,10 +46,11 @@ export class BlackJackComponent implements OnInit {
 
   initializeGame() {
     this.deck = this.BlackjackService.initDeck();
-    this.shoe = this.BlackjackService.initShoe(1, this.deck);
+    this.shoe = this.BlackjackService.initShoe(6, this.deck);
     this.shoe = this.BlackjackService.splitShoe(this.shoe, 70);
     
     this.runningCount = 0;
+    this.updateShoeCount();
     this.globalState = 'waitingForBet';
     this.roundMessage = 'Place your bet to start the round';
     console.log('Game initialized');
@@ -323,10 +325,15 @@ export class BlackJackComponent implements OnInit {
 
   // Continue to next round
   continueGame() {
+    this.updateShoeCount();
     this.calculateRunningCount();
     this.Reset();
     this.globalState = 'waitingForBet';
     this.roundMessage = 'Place your bet to start the round';
+  }
+
+  updateShoeCount(){
+    this.cardsRemaining = this.shoe.length;
   }
 
   // Reset game state
@@ -473,4 +480,6 @@ export class BlackJackComponent implements OnInit {
   toggleRunningCount() {
     this.runningCountShown = !this.runningCountShown;
   } 
+
+  
 }

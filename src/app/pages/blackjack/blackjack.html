@@ -25,7 +25,11 @@
     <!-- Dealer Section -->
     <div class="dealer-section">
       <div class="dealer-info">
-        <h2>Dealer</h2>
+        <div class="dealer-info-header">
+          <h2 class="centered">Dealer</h2>
+          <h5 class="right">Shoe: {{ cardsRemaining }}</h5>
+        </div>
+          
         <div class="hand-value">{{ dealerHandValue }}</div>
       </div>
       <div class="dealer-cards-area">

@@ -11,6 +11,7 @@ body {
   color: white;
   overflow-x: hidden;
   margin-top: 20vh;
+  height: 100%;
 }
 
 .blackjack-container {
@@ -78,6 +79,7 @@ body {
 }
 
 /* Dealer Section */
+
 .dealer-section {
   display: flex;
   flex-direction: column;
@@ -88,12 +90,38 @@ body {
 .dealer-info {
   text-align: center;
   margin-bottom: 15px;
+  width: 100%;
 }
+
+.dealer-info-header {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.centered{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.right{
+  margin-left: auto;
+}
+
 
 .dealer-info h2 {
   font-size: clamp(1.2rem, 3vw, 1.5rem);
   color: #ffd700;
   margin-bottom: 5px;
+}
+
+.dealer-info h5{
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: #cccccc;
+  opacity: 0.8;
+  margin-right: 20px;
 }
 
 .hand-value {

@@ -1,1 +1,6 @@
 @import url('https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css');
+
+:host {
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+}
