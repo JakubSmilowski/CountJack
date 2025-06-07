@@ -49,13 +49,14 @@
       border: 2px solid var(--primary);
       border-radius: 10px;
       overflow-x: auto;
+      min-width: fit-content;
     }
 
     iframe {
       width: 100%;
-      min-height: 500px;
+      min-height: 1000px;
       border: none;
-      border-radius: 8px;
+      border-radius: 2px;
     }
 
     @media (max-width: 600px) {
