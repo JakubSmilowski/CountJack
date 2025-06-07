@@ -1,0 +1,136 @@
+<div class="blackjack-container">
+  <h1>Blackjack Trainer</h1>
+  
+  <!-- Game Status Bar -->
+  <div class="game-status-bar">
+    <div class="status-section">
+      <h3>{{ gameStateMessage }}</h3>
+      <p class="round-message">{{ roundMessage }}</p>
+    </div>
+    <div class="bankroll-section">
+      <h4>Bankroll: {{ bankroll }} PLN</h4>
+    </div>
+    <div  class="running-count">
+      <button (click)="toggleRunningCount()" class="toggle">Toggle Running Count</button>
+      <div class="running-count-display">
+        <h5>Running Count: </h5>
+        <h5 *ngIf="runningCountShown == true">{{ runningCount }}</h5>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Game Table -->
+  <div class="blackjack-table">
+    
+    <!-- Dealer Section -->
+    <div class="dealer-section">
+      <div class="dealer-info">
+        <h2>Dealer</h2>
+        <div class="hand-value">{{ dealerHandValue }}</div>
+      </div>
+      <div class="dealer-cards-area">
+        <div class="card-container">
+          <div *ngFor="let card of visibleDealerCards; let i = index" class="playing-card dealer-card">
+            <div class="card-content" [ngClass]="{'red-suit': card.suit === '♥' || card.suit === '♦'}">
+              <span class="card-value-top">{{ getCardDisplayValue(card) }}</span>
+              <span class="card-suit">{{ getCardSuitIcon(card.suit) }}</span>
+              <span class="card-value-bottom">{{ getCardDisplayValue(card) }}</span>
+            </div>
+          </div>
+          <div *ngIf="dealerHiddenCard && dealerHand.length > 1" class="playing-card hidden-card">
+            <div class="card-back">
+              <div class="card-pattern"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Player Section -->
+    <div class="player-section">
+      <div class="player-info">
+        <h2>Player</h2>
+        <div class="hand-value">{{ playerHand.handSum }}</div>
+        <div class="hand-status" [ngClass]="playerHand.state">{{ playerHand.state || 'active' }}</div>
+      </div>
+      
+      <div class="player-cards-area">
+        <div class="card-container">
+          <div *ngFor="let card of playerHand.cards" class="playing-card player-card">
+            <div class="card-content" [ngClass]="{'red-suit': card.suit === '♥' || card.suit === '♦'}">
+              <span class="card-value-top">{{ getCardDisplayValue(card) }}</span>
+              <span class="card-suit">{{ getCardSuitIcon(card.suit) }}</span>
+              <span class="card-value-bottom">{{ getCardDisplayValue(card) }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bet Circle -->
+      <div class="betting-circle" [class.has-bet]="playerHand.betAmount > 0">
+        <span *ngIf="playerHand.betAmount > 0">{{ playerHand.betAmount }}</span>
+        <span *ngIf="playerHand.betAmount === 0">Bet</span>
+      </div>
+
+      <!-- Insurance -->
+      <div *ngIf="insuranceOffered && insuranceBet === 0" class="insurance-option">
+        <button (click)="takeInsurance()" class="insurance-btn" [disabled]="bankroll < (playerHand.betAmount / 2)">
+          Insurance
+        </button>
+      </div>
+      <div *ngIf="insuranceBet > 0" class="insurance-taken">
+        Insurance: {{ insuranceBet }} PLN
+      </div>
+    </div>
+  </div>
+
+  <!-- Control Panel -->
+  <div class="control-panel">
+    
+    <!-- Game Actions (when playing) -->
+    <div *ngIf="canPlay" class="game-actions">
+      <button (click)="Hit()" class="action-btn hit-btn">
+        <span class="btn-icon">👊</span>
+        <span>Hit</span>
+      </button>
+      <button (click)="Stand()" class="action-btn stand-btn">
+        <span class="btn-icon">✋</span>
+        <span>Stand</span>
+      </button>
+      <button *ngIf="canDoubleDown" (click)="DoubleDown()" class="action-btn double-btn">
+        <span class="btn-icon">💰</span>
+        <span>Double</span>
+      </button>
+      <button *ngIf="canSurrender" (click)="Surrender()" class="action-btn surrender-btn">
+        <span class="btn-icon">🏳️</span>
+        <span>Surrender</span>
+      </button>
+    </div>
+    
+    <!-- Betting Controls -->
+    <div *ngIf="canBet" class="betting-controls">
+      <h4>Place Your Bet</h4>
+      <div class="bet-buttons">
+        <button *ngFor="let amount of [25, 50, 100, 200, 500]" 
+                (click)="bet(amount)" 
+                class="bet-btn"
+                [disabled]="amount > bankroll">
+          {{ amount }}
+        </button>
+      </div>
+    </div>
+    
+    <!-- Start/Continue Button -->
+    <div class="round-control">
+      <button *ngIf="canStartRound" (click)="startRound()" class="start-round-btn">
+        <span class="btn-icon">🎯</span>
+        <span>Deal Cards</span>
+      </button>
+      
+      <button *ngIf="canContinue" (click)="continueGame()" class="continue-btn">
+        <span class="btn-icon">🔄</span>
+        <span>Next Round</span>
+      </button>
+    </div>
+  </div>
+</div>
