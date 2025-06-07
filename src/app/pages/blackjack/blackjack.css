@@ -10,6 +10,7 @@ body {
   background: linear-gradient(135deg, #0f4c3a 0%, #1a5f4a 100%);
   color: white;
   overflow-x: hidden;
+  margin-top: 20vh;
 }
 
 .blackjack-container {
@@ -20,6 +21,7 @@ body {
   /* CENTER */
   margin: 0 auto;
   padding: 10px;
+  padding-top: 15vh;
 }
 
 .blackjack-container h1 {

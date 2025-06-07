@@ -1,41 +1,347 @@
- <header>
-    <h1>Blackjack Training Platform</h1>
-    <p>Sharpen your skills. Play smart. Win more.</p>
+<!-- Home Component Template - home.component.html -->
+<div class="home-container">
+  <header class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">CountJack Training Platform</h1>
+      <p class="hero-subtitle">Master the game. Learn the strategy. Beat the house.</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">99.5%</span>
+          <span class="stat-label">Optimal RTP</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">0.5%</span>
+          <span class="stat-label">House Edge</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Practice Games</span>
+        </div>
+      </div>
+    </div>
   </header>
-<body>
-  <main>
-    <section>
-      <h2>What is Basic Strategy?</h2>
-      <p>
-        Basic strategy is the mathematically best way to play every hand in Blackjack. It takes into account your cards and the dealer's upcard to minimize the house edge. Memorizing this strategy will significantly improve your chances of winning.
-      </p>
-      <ul>
-        <li>Always hit on 12–16 if the dealer has 7–Ace.</li>
-        <li>Always stand on 17 or more.</li>
-        <li>Double down on 11 vs dealer 2–10.</li>
-        <li>Split Aces and 8s, never split 10s or 5s.</li>
-      </ul>
+
+  <main class="main-content">
+    <!-- Introduction Section -->
+    <section class="content-section intro-section">
+      <div class="section-header">
+        <h2>Why Learn Basic Strategy?</h2>
+        <div class="section-icon">🎯</div>
+      </div>
+      <div class="content-grid">
+        <div class="content-text">
+          <p class="highlight-text">
+            Basic strategy is your foundation for winning at blackjack. It's the mathematically proven best way to play every hand based on your cards and the dealer's upcard.
+          </p>
+          <p>
+            By following basic strategy, you can reduce the house edge to just 0.5% - making blackjack one of the best casino games for players. Without it, you're playing blind and giving the casino a much larger advantage.
+          </p>
+        </div>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <span class="benefit-icon">📈</span>
+            <span>Maximize your winning potential</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🧮</span>
+            <span>Make mathematically optimal decisions</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">💰</span>
+            <span>Minimize losses over time</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🎮</span>
+            <span>Play with confidence</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Introduction to Card Counting</h2>
-      <p>
-        Card counting helps you track high and low cards left in the deck. A common method is the Hi-Lo system:
-      </p>
-      <ul>
-        <li>+1 for cards 2 through 6</li>
-        <li>0 for 7 through 9</li>
-        <li>-1 for 10, J, Q, K, A</li>
-      </ul>
-      <p>
-        When your count is high, more high cards are left — that’s good for the player. Adjust your bets based on the count to increase profit.
-      </p>
+    <!-- Quick Rules Section -->
+    <section class="content-section rules-section">
+      <div class="section-header">
+        <h2>Essential Basic Strategy Rules</h2>
+        <div class="section-icon">📋</div>
+      </div>
+      <div class="rules-grid">
+        <div class="rule-card hit-rule">
+          <div class="rule-header">
+            <span class="rule-action">HIT</span>
+            <span class="rule-icon">👆</span>
+          </div>
+          <ul class="rule-list">
+            <li>Always hit on 12–16 vs dealer 7–Ace</li>
+            <li>Hit soft 17 (A,6) vs dealer 9,10,A</li>
+            <li>Hit any total of 11 or less</li>
+          </ul>
+        </div>
+        
+        <div class="rule-card stand-rule">
+          <div class="rule-header">
+            <span class="rule-action">STAND</span>
+            <span class="rule-icon">✋</span>
+          </div>
+          <ul class="rule-list">
+            <li>Always stand on hard 17 or more</li>
+            <li>Stand on 12–16 vs dealer 2–6</li>
+            <li>Stand on soft 19–20 (A,8–A,9)</li>
+          </ul>
+        </div>
+        
+        <div class="rule-card double-rule">
+          <div class="rule-header">
+            <span class="rule-action">DOUBLE</span>
+            <span class="rule-icon">⬆️</span>
+          </div>
+          <ul class="rule-list">
+            <li>Double 11 vs dealer 2–10</li>
+            <li>Double 10 vs dealer 2–9</li>
+            <li>Double 9 vs dealer 3–6</li>
+          </ul>
+        </div>
+        
+        <div class="rule-card split-rule">
+          <div class="rule-header">
+            <span class="rule-action">SPLIT</span>
+            <span class="rule-icon">↔️</span>
+          </div>
+          <ul class="rule-list">
+            <li>Always split Aces and 8s</li>
+            <li>Never split 10s, 5s, or 4s</li>
+            <li>Split 9s vs dealer 2–9 (except 7)</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="table-container">
-      <h2>Interactive Blackjack Table</h2>
-      <p>Practice with our built-in table below:</p>
-      <iframe src="assets/mini-blackjack-strategy-chart.png"></iframe>
+    <!-- Strategy Chart Section -->
+    <section class="content-section chart-section">
+      <div class="section-header">
+        <h2>Interactive Basic Strategy Chart</h2>
+        <div class="section-icon">📊</div>
+      </div>
+      <div class="chart-container">
+        <div class="chart-description">
+          <p>Use this comprehensive strategy chart to make the optimal decision for every possible hand combination. The chart shows what action to take based on your hand total and the dealer's upcard.</p>
+        </div>
+        
+        <div class="strategy-chart-wrapper">
+          <img 
+            src="assets/mini-blackjack-strategy-chart.png" 
+            alt="Blackjack Basic Strategy Chart - Complete guide showing optimal plays for all hand combinations"
+            class="strategy-chart-image"
+            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWUzYTFmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iI2ZmZDcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkJhc2ljIFN0cmF0ZWd5IENoYXJ0PC90ZXh0Pjx0ZXh0IHg9IjUwJSIgeT0iNjAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiNiOGQ0YzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5DaGFydCBsb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg=='"
+          />
+          <div class="chart-overlay" *ngIf="showChartHelp">
+            <div class="chart-help">
+              <h3>How to Use This Chart</h3>
+              <p>Find your hand total on the left, then follow across to the dealer's upcard column. The intersection shows your optimal play.</p>
+              <button class="close-help" (click)="showChartHelp = false">Got it!</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="chart-actions">
+          <button 
+            class="help-button" 
+            (click)="toggleChartHelp()"
+            [class.active]="showChartHelp"
+          >
+            <span class="button-icon">❓</span>
+            Chart Help
+          </button>
+          <button class="download-button" (click)="downloadChart()">
+            <span class="button-icon">📥</span>
+            Download Chart
+          </button>
+        </div>
+
+        <!-- Chart Legend -->
+        <div class="chart-legend">
+          <div class="legend-title">Chart Legend</div>
+          <div class="legend-items">
+            <div class="legend-item">
+              <div class="legend-color hit-color"></div>
+              <span class="legend-text">H = Hit</span>
+              <span class="legend-desc">Take another card</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color stand-color"></div>
+              <span class="legend-text">S = Stand</span>
+              <span class="legend-desc">Keep current total</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color double-color"></div>
+              <span class="legend-text">D = Double</span>
+              <span class="legend-desc">Double down, then hit once</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color split-color"></div>
+              <span class="legend-text">P = Split</span>
+              <span class="legend-desc">Split pairs into two hands</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Card Counting Section -->
+    <section class="content-section counting-section">
+      <div class="section-header">
+        <h2>Card Counting Basics</h2>
+        <div class="section-icon">🔢</div>
+      </div>
+      <div class="counting-content">
+        <p class="highlight-text">
+          Card counting gives you an edge by tracking the ratio of high to low cards remaining in the deck. While not illegal, it requires practice and discipline.
+        </p>
+        
+        <div class="warning-box">
+          <span class="warning-icon">⚠️</span>
+          <div>
+            <strong>Legal Notice:</strong> Card counting is a mental skill and is legal in most jurisdictions. However, casinos may ask you to leave if they suspect you're counting cards. Always play responsibly and within your means.
+          </div>
+        </div>
+
+        <div class="hi-lo-system">
+          <h3>Hi-Lo Counting System</h3>
+          <div class="counting-cards">
+            <div class="card-group low-cards">
+              <div class="card-group-header">
+                <span class="count-value">+1</span>
+                <span class="count-label">Low Cards</span>
+              </div>
+              <div class="cards">
+                <div class="card">2</div>
+                <div class="card">3</div>
+                <div class="card">4</div>
+                <div class="card">5</div>
+                <div class="card">6</div>
+              </div>
+            </div>
+            
+            <div class="card-group neutral-cards">
+              <div class="card-group-header">
+                <span class="count-value">0</span>
+                <span class="count-label">Neutral Cards</span>
+              </div>
+              <div class="cards">
+                <div class="card">7</div>
+                <div class="card">8</div>
+                <div class="card">9</div>
+              </div>
+            </div>
+            
+            <div class="card-group high-cards">
+              <div class="card-group-header">
+                <span class="count-value">-1</span>
+                <span class="count-label">High Cards</span>
+              </div>
+              <div class="cards">
+                <div class="card">10</div>
+                <div class="card">J</div>
+                <div class="card">Q</div>
+                <div class="card">K</div>
+                <div class="card">A</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="counting-tips">
+          <h4>Counting Tips & Strategy</h4>
+          <div class="tip-grid">
+            <div class="tip-item">
+              <span class="tip-icon">💡</span>
+              <div class="tip-content">
+                <strong>Running Count:</strong> Keep a mental tally of +1, 0, or -1 for each card you see.
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">🎯</span>
+              <div class="tip-content">
+                <strong>True Count:</strong> Divide running count by estimated decks remaining for accuracy.
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">💰</span>
+              <div class="tip-content">
+                <strong>Betting Strategy:</strong> Increase bets when count is positive (more high cards remain).
+              </div>
+            </div>
+            <div class="tip-item">
+              <span class="tip-icon">🎭</span>
+              <div class="tip-content">
+                <strong>Camouflage:</strong> Vary your play and betting to avoid detection by casino staff.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Practice Section -->
+    <section class="content-section practice-section">
+      <div class="section-header">
+        <h2>Start Your Training</h2>
+        <div class="section-icon">🚀</div>
+      </div>
+      <div class="practice-options">
+        <div class="practice-card">
+          <div class="practice-header">
+            <h3>Basic Strategy Trainer</h3>
+            <span class="difficulty beginner">Beginner</span>
+          </div>
+          <p>Learn and practice basic strategy with instant feedback. Perfect for beginners who want to master the fundamentals.</p>
+          <div class="practice-features">
+            <div class="feature">✓ Interactive decision making</div>
+            <div class="feature">✓ Instant feedback and corrections</div>
+            <div class="feature">✓ Progress tracking</div>
+            <div class="feature">✓ Customizable difficulty levels</div>
+          </div>
+          <button class="practice-button primary" (click)="startBasicTraining()">
+            <span>Start Training</span>
+            <span class="button-arrow">→</span>
+          </button>
+        </div>
+
+        <div class="practice-card">
+          <div class="practice-header">
+            <h3>Card Counting Practice</h3>
+            <span class="difficulty intermediate">Intermediate</span>
+          </div>
+          <p>Practice your card counting skills with various counting systems. Build speed and accuracy in a risk-free environment.</p>
+          <div class="practice-features">
+            <div class="feature">✓ Hi-Lo counting system</div>
+            <div class="feature">✓ Speed training modes</div>
+            <div class="feature">✓ Multi-deck scenarios</div>
+            <div class="feature">✓ True count conversion</div>
+          </div>
+          <button class="practice-button secondary" (click)="startCountingPractice()">
+            <span>Practice Counting</span>
+            <span class="button-arrow">→</span>
+          </button>
+        </div>
+
+        <div class="practice-card">
+          <div class="practice-header">
+            <h3>Full Game Simulator</h3>
+            <span class="difficulty advanced">Advanced</span>
+          </div>
+          <p>Experience realistic blackjack gameplay with full casino rules. Test your skills in various scenarios and conditions.</p>
+          <div class="practice-features">
+            <div class="feature">✓ Multiple rule variations</div>
+            <div class="feature">✓ Realistic casino environment</div>
+            <div class="feature">✓ Bankroll management</div>
+            <div class="feature">✓ Detailed statistics</div>
+          </div>
+          <button class="practice-button primary" (click)="startFullGame()">
+            <span>Play Full Game</span>
+            <span class="button-arrow">→</span>
+          </button>
+        </div>
+      </div>
     </section>
   </main>
-</body>
+</div>

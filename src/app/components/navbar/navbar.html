@@ -1,10 +1,24 @@
 <nav class="container-fluid">
-  <ul><li><a href="/"><strong >Blackjack Trainer</strong></a></li></ul>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/blackjack">Play</a></li>
-    <li><a href="/stats">Stats</a></li>
-    <li><a href="/settings">Settings</a></li>
-    <li><a href="/login" role="button">Login</a></li>
+  <ul class="brand-container">
+    <li><a href="/"><strong>Blackjack Trainer</strong></a></li>
+  </ul>
+  
+  <!-- Mobile Menu Toggle Button -->
+  <button class="mobile-menu-toggle" 
+          (click)="toggleMobileMenu()" 
+          [class.active]="isMobileMenuOpen"
+          aria-label="Toggle navigation menu">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+  </button>
+  
+  <!-- Navigation Menu -->
+  <ul class="nav-menu" [class.mobile-open]="isMobileMenuOpen">
+    <li><a href="/" (click)="closeMobileMenu()">Home</a></li>
+    <li><a href="/blackjack" (click)="closeMobileMenu()">Play</a></li>
+    <li><a href="/stats" (click)="closeMobileMenu()">Stats</a></li>
+    <li><a href="/settings" (click)="closeMobileMenu()">Settings</a></li>
+    <li><a href="/login" role="button" (click)="closeMobileMenu()">Login</a></li>
   </ul>
 </nav>
