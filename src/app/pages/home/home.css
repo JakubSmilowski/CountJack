@@ -53,11 +53,13 @@
     }
 
     iframe {
-      width: 100%;
-      min-height: 1000px;
-      border: none;
-      border-radius: 2px;
-    }
+    width: 100vh;
+    border: none;
+    border: 2px;
+    border-radius: 10px;
+    overflow-x: auto;
+    height: 75vh;
+  }
 
     @media (max-width: 600px) {
       header h1 {
