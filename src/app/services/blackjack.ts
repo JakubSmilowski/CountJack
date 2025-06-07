@@ -20,7 +20,7 @@ export class Blackjack implements OnInit {
   }
  
    public initDeck(): Card[] {
-    const suits: CardSuit[] = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
+    const suits: CardSuit[] = ['♥', '♦', '♠', '♣'];
     const ranks: CardRank[] = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
 
     this.deck = [];

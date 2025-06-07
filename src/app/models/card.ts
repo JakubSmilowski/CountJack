@@ -1,8 +1,8 @@
-export type CardSuit = 'Hearts' | 'Diamonds' | 'Clubs' | 'Spades';
+export type CardSuit = '♥' | '♦' | '♠' | '♣';
 export type CardRank = 'Ace' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | 'Jack' | 'Queen' | 'King';
 
 export class Card {
-  public suit: CardSuit = 'Hearts';
+  public suit: CardSuit = '♥';
   public rank: CardRank = 'Ace';
   constructor(cardSuit: CardSuit, cardRank: CardRank
   ) {
