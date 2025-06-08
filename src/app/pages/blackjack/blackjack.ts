@@ -214,7 +214,7 @@ export class BlackJackComponent implements OnInit {
     this.insuranceOffered = false;
     
     // Process insurance bets first
-    this.processInsuranceBets();
+    // this.processInsuranceBets();
     
     this.roundMessage = 'Dealer playing...';
     
@@ -224,17 +224,19 @@ export class BlackJackComponent implements OnInit {
   }
 
   // Process insurance bets
-  processInsuranceBets() {
-    if (this.insuranceBet > 0) {
-      const dealerHasBlackjack = this.isBlackjack(this.dealerHand);
-      if (dealerHasBlackjack) {
-        // Insurance pays 2:1
-        this.bankroll += this.insuranceBet * 3; // Original bet + 2:1 payout
-        this.roundMessage += ' Insurance won!';
-      }
-      // If dealer doesn't have blackjack, insurance bet is already lost
-    }
-  }
+  // processInsuranceBets() {
+  //   if (this.insuranceBet > 0) {
+  //     const dealerHasBlackjack = this.isBlackjack(this.dealerHand);
+  //     if (dealerHasBlackjack) {
+  //       // Insurance pays 2:1
+  //       this.bankroll += this.insuranceBet * 3; // Original bet + 2:1 payout
+  //       this.roundMessage += ' Insurance won!';
+        
+  //     }
+  //     // If dealer doesn't have blackjack, insurance bet is already lost
+  //     this.roundMessage += ' Insurance Lost!';
+  //   }
+  // }
 
   // Dealer plays according to rules
   playDealerHand() {
@@ -298,13 +300,27 @@ export class BlackJackComponent implements OnInit {
     } else if (this.playerHand.state === 'busted') {
       resultMessage = `Busted - Lost ${this.playerHand.betAmount}`;
     } else if (playerBlackjack && dealerBlackjack) {
-      totalWinnings = this.playerHand.betAmount;
-      resultMessage = 'Push (both Blackjack)';
+      if(this.playerHand.cards.length > 2 && this.insuranceBet == 0){
+        resultMessage = `Dealer Blackjack - Lost ${this.playerHand.betAmount}`;
+      } else if (this.insuranceBet > 0){
+        totalWinnings = (this.insuranceBet * 2);
+        this.bankroll += this.playerHand.betAmount;
+        resultMessage = `Insurance won! Won: ${totalWinnings}`;
+      }else {
+        totalWinnings = this.playerHand.betAmount * (1 + this.blackjackPayout);
+        resultMessage = `Blackjack! Won ${totalWinnings}`;
+      }
     } else if (playerBlackjack && !dealerBlackjack) {
       totalWinnings = this.playerHand.betAmount * (1 + this.blackjackPayout);
       resultMessage = `Blackjack! Won ${totalWinnings}`;
-    } else if (!playerBlackjack && dealerBlackjack) {
-      resultMessage = `Dealer Blackjack - Lost ${this.playerHand.betAmount}`;
+    } else if (!playerBlackjack && dealerBlackjack ) {
+      if(this.insuranceBet > 0){
+        totalWinnings = (this.insuranceBet * 2);
+        this.bankroll += this.playerHand.betAmount;
+        resultMessage = `Insurance won! Won: ${totalWinnings}`;
+      }else{
+        resultMessage = `Dealer Blackjack - Lost ${this.playerHand.betAmount}`;
+      }
     } else if (dealerBusted) {
       totalWinnings = this.playerHand.betAmount * 2;
       resultMessage = `Won ${this.playerHand.betAmount * 2} (dealer busted)`;
@@ -321,6 +337,14 @@ export class BlackJackComponent implements OnInit {
     this.bankroll += totalWinnings;
     this.roundMessage = resultMessage;
     this.globalState = 'roundComplete';
+  }
+
+  CheckForInsurence() {
+    if (this.insuranceBet > 0) {
+      this.bankroll += this.playerHand.betAmount;
+      return (this.insuranceBet * 2)
+    }
+    return 0
   }
 
   // Continue to next round
