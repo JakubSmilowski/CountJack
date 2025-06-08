@@ -35,5 +35,7 @@ export class Home {
   startFullGame(): void {
     // Navigate to full game simulator
     console.log('Starting full game...');
+    //Navigate to /blackjack
+    window.location.href = '/blackjack';
   }
 }
