@@ -53,6 +53,7 @@ export class BlackJackComponent implements OnInit {
     this.updateShoeCount();
     this.globalState = 'waitingForBet';
     this.roundMessage = 'Place your bet to start the round';
+    this.scrollToRoundContol();
     console.log('Game initialized');
   }
 
@@ -77,9 +78,11 @@ export class BlackJackComponent implements OnInit {
     if(this.playerHand.betAmount > 0){
       this.playerHand.betAmount += amount;
        this.roundMessage = `Bet placed on exisitng hand: ${amount} PLN`;
+       this.scrollToRoundContol();
     } else{
       this.playerHand = new Hand([], amount);
       this.roundMessage = `Bet placed on a new hand: ${amount} PLN`;
+      this.scrollToRoundContol();
     }
   }
 
@@ -99,6 +102,7 @@ export class BlackJackComponent implements OnInit {
     } else {
       this.globalState = 'playing';
       this.roundMessage = 'Choose your action';
+      this.scrollToGameActions();
     }
   }
 
@@ -322,6 +326,7 @@ export class BlackJackComponent implements OnInit {
     this.bankroll += totalWinnings;
     this.roundMessage = resultMessage;
     this.globalState = 'roundComplete';
+    this.scrollToRoundContol();
   }
 
   CheckForInsurence() {
@@ -339,6 +344,7 @@ export class BlackJackComponent implements OnInit {
     this.Reset();
     this.globalState = 'waitingForBet';
     this.roundMessage = 'Place your bet to start the round';
+    this.scrollToRoundContol();
   }
 
   updateShoeCount(){
@@ -490,5 +496,27 @@ export class BlackJackComponent implements OnInit {
     this.runningCountShown = !this.runningCountShown;
   } 
 
-  
+  private scrollToGameActions(): void {
+  setTimeout(() => {
+    const controlPanel = document.querySelector('.game-actions');
+    if (controlPanel) {
+      controlPanel.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end'
+      });
+    }
+  }, 100);
+}
+
+private scrollToRoundContol(): void {
+  setTimeout(() => {
+    const controlPanel = document.querySelector('.round-control');
+    if (controlPanel) {
+      controlPanel.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end'
+      });
+    }
+  }, 100);
+}
 }
