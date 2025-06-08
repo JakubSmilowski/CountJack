@@ -5,7 +5,7 @@ nav.container-fluid {
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(15px);
   border-bottom: 2px solid #d4af37;
-  padding: 1rem 2rem;
+  padding: 0rem 2rem;
   position: fixed;
   top: 0;
   z-index: 1000;
@@ -86,7 +86,7 @@ nav ul {
 nav a {
   color: #e0e0e0;
   text-decoration: none;
-  padding: 0.75rem 1.25rem;
+  padding: 0.5rem 1.25rem;
   border-radius: 8px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 500;
@@ -142,7 +142,7 @@ nav a[role="button"]:active {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   nav.container-fluid {
-    padding: 1rem;
+    padding: 0.5rem;
     position: relative;
   }
   
@@ -217,26 +217,38 @@ nav a[role="button"]:active {
   }
 }
 
+
 /* Small Mobile Devices */
 @media (max-width: 480px) {
   nav.container-fluid {
-    padding: 0.75rem 1rem;
+    padding: 0rem 1rem; 
   }
   
   .nav-menu a {
     font-size: 1rem;
-    padding: 0.875rem 1rem;
+    padding: 0.275rem 1rem;
   }
   
   nav a strong {
-    font-size: 1.2rem;
+    font-size: 1rem;
+  }
+}
+
+@media(max-height: 600px){
+  nav.container-fluid {
+    padding: 0rem;
+  }
+  
+  .nav-menu a {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
   }
 }
 
 /* Extra Small Devices */
 @media (max-width: 360px) {
   nav.container-fluid {
-    padding: 0.75rem;
+    padding: 0rem;
   }
   
   .nav-menu a {

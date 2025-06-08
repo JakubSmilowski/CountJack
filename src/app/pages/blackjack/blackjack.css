@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 body {
@@ -22,7 +23,7 @@ body {
   /* CENTER */
   margin: 0 auto;
   padding: 10px;
-  padding-top: 15vh;
+  padding-top: 10vh;
 }
 
 .blackjack-container h1 {
@@ -41,7 +42,6 @@ body {
   background: rgba(0,0,0,0.3);
   padding: 10px 20px;
   border-radius: 8px;
-  margin-bottom: 15px;
   border: 2px solid #ffd700;
 }
 
@@ -75,7 +75,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 350px;
+  max-height: 65vh;
+  
 }
 
 /* Dealer Section */
@@ -84,7 +85,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .dealer-info {
@@ -94,21 +95,17 @@ body {
 }
 
 .dealer-info-header {
-  justify-content: space-between;
+  justify-content: space-around;
   display: flex;
   align-items: center;
   position: relative;
   width: 100%;
 }
 
-.centered{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.dealr-info-words{
+  max-width: 15;
 }
-.right{
-  margin-left: auto;
-}
+
 
 
 .dealer-info h2 {
@@ -130,6 +127,7 @@ body {
   color: #fff;
   background: rgba(0,0,0,0.5);
   padding: 5px 15px;
+  margin-right: 5px;
   border-radius: 20px;
   display: inline-block;
 }
@@ -287,6 +285,18 @@ body {
   font-weight: bold;
 }
 
+.insurance-btn-disabled{
+  background: #ff9800;
+  color: white;
+  border: none;
+  opacity: 0.5;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  cursor: pointer;
+  font-weight: bold;
+}
+
 .insurance-btn:hover:not(:disabled) {
   background: #f57c00;
   transform: translateY(-1px);
@@ -315,6 +325,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  min-height: fit-content;
 }
 
 /* Game Actions */
@@ -455,10 +466,12 @@ body {
   
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-height: 768px) {
   .blackjack-container {
     padding: 5px;
   }
+
+  
   
   .blackjack-table {
     padding: 15px;
@@ -468,10 +481,12 @@ body {
   
   .game-status-bar {
     flex-direction: column;
-    gap: 10px;
+    gap: 2px;
     text-align: center;
-    padding: 15px;
+    padding: 2px;
+    margin-bottom: 2px;
   }
+  
   
   .card-container {
     gap: 8px;
@@ -482,7 +497,19 @@ body {
     gap: 4px;
     min-width: fit-content;
   }
-  
+  .dealer-cards-area{
+    padding-bottom: 9px;
+  }
+
+  .playing-card{
+    width: 35px;
+    height: 50px;
+  }
+
+  .card-content span{
+    font-size: 9px;
+    
+  }
   .game-actions {
     gap: 8px;
     
@@ -499,6 +526,10 @@ body {
 
 
 @media (max-width: 480px) {
+  .blackjack-container{
+    padding-top: 1.5vh ;
+  }
+  
   .blackjack-table {
     padding: 10px;
     min-height: 280px;
@@ -521,6 +552,10 @@ body {
   .betting-circle {
     width: 50px;
     height: 50px;
+  }
+
+  .control-panel{
+    gap: 5px;
   }
 }
 

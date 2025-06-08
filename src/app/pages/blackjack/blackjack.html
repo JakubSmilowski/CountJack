@@ -1,6 +1,4 @@
 <div class="blackjack-container">
-  <h1>Blackjack Trainer</h1>
-  
   <!-- Game Status Bar -->
   <div class="game-status-bar">
     <div class="status-section">
@@ -26,8 +24,23 @@
     <div class="dealer-section">
       <div class="dealer-info">
         <div class="dealer-info-header">
-          <h2 class="centered">Dealer</h2>
-          <h5 class="right">Shoe: {{ cardsRemaining }}</h5>
+          <div class="dealr-info-words">
+            <div *ngIf="insuranceOffered && insuranceBet === 0" class="insurance-option">
+              <button (click)="takeInsurance()" class="insurance-btn" [disabled]="bankroll < (playerHand.betAmount / 2)">
+                Insurance
+              </button>
+            </div>
+            <div *ngIf="!(insuranceOffered && insuranceBet === 0)" class="insurance-option">
+              <button class="insurance-btn-disabled">
+                Insurance
+              </button>
+            </div>
+            <div *ngIf="insuranceBet > 0" class="insurance-taken">
+              Insurance: {{ insuranceBet }} PLN
+            </div>
+          </div>
+          <h2 class="dealr-info-words">Dealer</h2>
+          <h5 class="dealr-info-words">Shoe: {{ cardsRemaining }}</h5>
         </div>
           
         <div class="hand-value">{{ dealerHandValue }}</div>
@@ -77,14 +90,7 @@
       </div>
 
       <!-- Insurance -->
-      <div *ngIf="insuranceOffered && insuranceBet === 0" class="insurance-option">
-        <button (click)="takeInsurance()" class="insurance-btn" [disabled]="bankroll < (playerHand.betAmount / 2)">
-          Insurance
-        </button>
-      </div>
-      <div *ngIf="insuranceBet > 0" class="insurance-taken">
-        Insurance: {{ insuranceBet }} PLN
-      </div>
+      
     </div>
   </div>
 
@@ -112,9 +118,9 @@
     </div>
     
     <!-- Betting Controls -->
-    <div *ngIf="canBet" class="betting-controls">
+    <div *ngIf="canBet" class="betting-controls" >
       <h4>Place Your Bet</h4>
-      <div class="bet-buttons">
+      <div class="bet-buttons" >
         <button *ngFor="let amount of [25, 50, 100, 200, 500]" 
                 (click)="bet(amount)" 
                 class="bet-btn"

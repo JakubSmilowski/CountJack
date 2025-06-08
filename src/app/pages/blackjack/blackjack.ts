@@ -223,21 +223,6 @@ export class BlackJackComponent implements OnInit {
     }, 1000);
   }
 
-  // Process insurance bets
-  // processInsuranceBets() {
-  //   if (this.insuranceBet > 0) {
-  //     const dealerHasBlackjack = this.isBlackjack(this.dealerHand);
-  //     if (dealerHasBlackjack) {
-  //       // Insurance pays 2:1
-  //       this.bankroll += this.insuranceBet * 3; // Original bet + 2:1 payout
-  //       this.roundMessage += ' Insurance won!';
-        
-  //     }
-  //     // If dealer doesn't have blackjack, insurance bet is already lost
-  //     this.roundMessage += ' Insurance Lost!';
-  //   }
-  // }
-
   // Dealer plays according to rules
   playDealerHand() {
     if (this.isBlackjack(this.dealerHand)) {
