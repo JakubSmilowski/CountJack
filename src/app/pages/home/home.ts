@@ -25,11 +25,13 @@ export class Home {
   startBasicTraining(): void {
     // Navigate to basic strategy trainer
     console.log('Starting basic strategy training...');
+    window.location.href = '/practice';
   }
   
   startCountingPractice(): void {
     // Navigate to card counting practice
     console.log('Starting card counting practice...');
+    
   }
   
   startFullGame(): void {
