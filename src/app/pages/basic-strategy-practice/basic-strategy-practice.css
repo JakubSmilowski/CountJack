@@ -585,3 +585,89 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Practice mode buttons style */
+/* Practice Configuration Toggle Styles */
+.practice-configuration {
+  display: flex;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 25px;
+  border: 2px solid rgba(255, 215, 0, 0.2);
+  gap: 0;
+}
+
+.practice-configuration h2 {
+  color: #ffd700;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.practice-configuration button {
+  flex: 1;
+  padding: 12px 20px;
+  background: rgba(128, 128, 128, 0.1);
+  border: none;
+  border-radius: 0;
+  color: #888888;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+.practice-configuration button:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.practice-configuration button:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.practice-configuration button:hover {
+  background: rgba(128, 128, 128, 0.2);
+  color: #cccccc;
+}
+
+.practice-configuration button:active {
+  background: rgba(255, 215, 0, 0.3);
+  transform: translateY(1px);
+}
+
+.practice-configuration button.active {
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  color: #000000;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+.practice-configuration button.active:active {
+  background: linear-gradient(45deg, #e6c200, #f0d633);
+  transform: translateY(1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .practice-configuration {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .practice-configuration button {
+    flex: 1 1 calc(50% - 4px);
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .practice-configuration button {
+    flex: 1 1 100%;
+    font-size: 0.8rem;
+    padding: 10px 15px;
+  }
+}

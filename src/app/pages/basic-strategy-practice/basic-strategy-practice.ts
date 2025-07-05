@@ -106,7 +106,7 @@ dealNewHand() {
   // Check in case of split mode
   if (this.practiceMode == "same") {
     this.playerHand.Hit(this.dealCard()); 
-    this.playerHand.Hit(this.dealCard()); // Fixed: added missing parentheses and dealCard() call
+    this.playerHand.Hit(this.playerHand.cards[0]);
   } else {
     // Deal two cards to player
     this.playerHand.Hit(this.dealCardWithSettings()); // deals card and checks if the card can be dealt to the player
