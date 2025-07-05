@@ -1,25 +1,27 @@
 <div class="practice-container">
   <!-- Header with Statistics and configuration -->
   <div class="practice-header">
-    <h1>Basic Strategy Practice</h1>
+    <div class="header-content">
+      <h1>Basic Strategy Practice</h1>
+      <div class="stats-section">
+        <div class="stat-item">
+          <span class="stat-label">Accuracy:</span>
+          <span class="stat-value" [ngClass]="{'good': accuracyPercentage >= 80, 'fair': accuracyPercentage >= 60 && accuracyPercentage < 80}">
+            {{ accuracyPercentage }}%
+          </span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Correct:</span>
+          <span class="stat-value">{{ correctCount }}/{{ totalCount }}</span>
+        </div>
+        <button (click)="resetStats()" class="reset-stats-btn">Reset</button>
+      </div>
+    </div>
     <div class="practice-configuration">
       <button (click)="practiceSet('all')">All combined</button>
       <button (click)="practiceSet('hard')">Hard hands</button>
       <button (click)="practiceSet('soft')">Soft hands</button>
       <button (click)="practiceSet('same')">Same cards</button>
-    </div>
-    <div class="stats-section">
-      <div class="stat-item">
-        <span class="stat-label">Accuracy:</span>
-        <span class="stat-value" [ngClass]="{'good': accuracyPercentage >= 80, 'fair': accuracyPercentage >= 60 && accuracyPercentage < 80}">
-          {{ accuracyPercentage }}%
-        </span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">Correct:</span>
-        <span class="stat-value">{{ correctCount }}/{{ totalCount }}</span>
-      </div>
-      <button (click)="resetStats()" class="reset-stats-btn">Reset Stats</button>
     </div>
   </div>
 
@@ -123,41 +125,5 @@
         <span>Next Hand</span>
       </button>
     </div>
-  </div>
-
-  <!-- Strategy Hint Section -->
-  <div class="strategy-hint">
-    <h4>Remember these basic strategy rules:</h4>
-    <h5>Spliting Rules:</h5>
-    <ul>
-      <li>Always split Aces and 8s</li>
-      <li>Never Split 10's and 5's</li>
-      <li>Split 2, 3 & 7 on 2 through 7</li>
-      <li>Split 4's against 5 & 6</li>
-      <li>Split 6's on 2 through 6</li>
-      <li>Split 9''s against 2 through 9, except 7</li>
-    </ul>
-    <h5>Spft Totals:</h5>
-    <ul>
-        <li>Soft 21 and 20 always stand</li>
-        <li>Soft 19 (Ace, 8) doubles against 6 otherwise it stands</li>
-        <li>Soft 18 (Ace, 7) doubles against 2-6, stands against 7 and 8, hits against 9, 10, Ace. If it can't double against 2-6, it stands</li>
-        <li>Soft 17 (A, 6) doubles against 3-6, otherwise it hits</li>
-        <li>Soft 16 and Soft 15 (A, 5 and A, 4) doubles against 4-6 otherwise it hits</li>
-        <li>Soft 14 and soft 13 (Ace, 3 and ace, 2) doubles against 5 and 6 otherwise it hits</li>
-    </ul>
-    <h5>Hard Totals and Surrender</h5>
-    <ul>
-      <li>Surrender 16 against 9 – Ace</li>
-      <li>Surrender 15 against a 10</li>
-      <li>Hard 17 and above will always stand</li>
-      <li>Hard 13 through 16 will stand against 2-6, hit against 7-ace</li>
-      <li>Hard 12 will stand against 4-6, hit against everything else</li>
-      <li>Hard 11 will always double down</li>
-      <li>Hard 10 will double against 2-9</li>
-      <li>Hard 9 will double against 3-6</li>
-      <li>Hard 8 and below will always hit</li>
-    </ul>
-
   </div>
 </div>
