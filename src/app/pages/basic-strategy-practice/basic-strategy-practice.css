@@ -21,7 +21,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 12vh;
-  padding: 10px;
+  padding: 8px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,11 +32,11 @@ body {
   width: 100%;
 }
 
-/* Header Section */
+/* Header Section - Made more compact */
 .practice-header {
   background: rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  padding: 12px;
+  border-radius: 8px;
+  padding: 8px;
   margin-bottom: 8px;
   border: 2px solid rgba(255, 215, 0, 0.3);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
@@ -47,28 +47,28 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .practice-header h1 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #ffd700;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-weight: 700;
   margin: 0;
 }
 
-/* Statistics Section */
+/* Statistics Section - More compact */
 .stats-section {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
   background: rgba(0, 0, 0, 0.4);
-  padding: 8px;
-  border-radius: 6px;
+  padding: 6px;
+  border-radius: 4px;
   border: 1px solid rgba(255, 215, 0, 0.2);
-  min-width: 100px;
-  font-size: 0.75rem;
+  min-width: 80px;
+  font-size: 0.7rem;
 }
 
 .stat-item {
@@ -82,11 +82,11 @@ body {
   font-size: 0.6rem;
   color: #aaaaaa;
   text-transform: uppercase;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
 }
 
 .stat-value {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: #ffffff;
   transition: color 0.3s ease;
@@ -120,11 +120,11 @@ body {
   box-shadow: 0 3px 10px rgba(220, 38, 38, 0.4);
 }
 
-/* Practice Configuration */
+/* Practice Configuration - More compact */
 .practice-configuration {
   display: flex;
   background: rgba(0, 0, 0, 0.4);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 3px;
   border: 2px solid rgba(255, 215, 0, 0.2);
   gap: 0;
@@ -132,7 +132,7 @@ body {
 
 .practice-configuration button {
   flex: 1;
-  padding: 6px 10px;
+  padding: 6px 8px;
   background: rgba(128, 128, 128, 0.1);
   border: none;
   border-radius: 0;
@@ -141,16 +141,16 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 0.65rem;
+  letter-spacing: 0.3px;
+  font-size: 0.6rem;
 }
 
 .practice-configuration button:first-child {
-  border-radius: 4px 0 0 4px;
+  border-radius: 3px 0 0 3px;
 }
 
 .practice-configuration button:last-child {
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 3px 3px 0;
 }
 
 .practice-configuration button:hover {
@@ -165,16 +165,17 @@ body {
   box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
 }
 
-/* Game Table - Reduced height */
+/* Game Table */
 .practice-table {
   background: radial-gradient(ellipse at center, #1e5f4f, #0f4c3a);
-  border-radius: 15px;
+  border-radius: 12px;
   padding: 15px;
   margin-bottom: 8px;
   border: 2px solid #ffd700;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  flex-shrink: 0;
-  /* Removed flex: 1 and min-height to prevent expansion */
+  flex: 1;
+  min-height: 0;
+  overflow: visible;
 }
 
 /* Dealer Section */
@@ -183,22 +184,22 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
-  padding: 12px;
+  padding: 10px;
   background: rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .dealer-info h2 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #ffd700;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .dealer-upcard-label {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: #cccccc;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
 }
 
 .dealer-cards-area {
@@ -211,15 +212,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .player-info h2 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #ffd700;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .player-cards-area {
@@ -237,9 +238,9 @@ body {
 /* Playing Cards */
 .playing-card {
   width: 55px;
-  height: 82px;
+  height: 80px;
   background: #ffffff;
-  border-radius: 6px;
+  border-radius: 5px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   position: relative;
   transition: all 0.3s ease;
@@ -252,7 +253,7 @@ body {
 }
 
 .card-content {
-  padding: 5px;
+  padding: 4px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -273,7 +274,7 @@ body {
 .card-suit {
   font-size: 1.1rem;
   align-self: center;
-  margin-top: -4px;
+  margin-top: -3px;
 }
 
 .card-value-bottom {
@@ -294,7 +295,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
+  border-radius: 5px;
 }
 
 .card-pattern {
@@ -307,17 +308,17 @@ body {
     transparent 4px,
     transparent 8px
   );
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
-/* Decision Panel - Compact and fixed at bottom */
+/* Decision Panel - More compact */
 .decision-panel {
   background: rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 10px;
   border: 2px solid rgba(255, 215, 0, 0.2);
   flex-shrink: 0;
-  min-height: 100px; /* Reduced from 140px */
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -348,9 +349,9 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  min-height: 55px; /* Reduced from 70px */
+  min-height: 55px;
 }
 
 .btn-icon {
@@ -401,7 +402,7 @@ body {
   box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
 }
 
-/* Feedback Section - Much more compact */
+/* Feedback Section - More compact */
 .feedback-section {
   text-align: center;
   animation: fadeIn 0.5s ease-in;
@@ -413,11 +414,11 @@ body {
 }
 
 .feedback-message {
-  font-size: 0.9rem; /* Reduced from 1.1rem */
+  font-size: 0.9rem;
   font-weight: 600;
-  padding: 8px 12px; /* Reduced from 15px */
+  padding: 8px;
   border-radius: 6px;
-  margin-bottom: 8px; /* Reduced from 15px */
+  margin-bottom: 8px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -437,8 +438,8 @@ body {
 .action-comparison {
   display: flex;
   justify-content: center;
-  gap: 15px; /* Reduced from 20px */
-  margin-bottom: 8px; /* Reduced from 15px */
+  gap: 15px;
+  margin-bottom: 8px;
   flex-wrap: wrap;
 }
 
@@ -450,17 +451,17 @@ body {
 }
 
 .comparison-item .label {
-  font-size: 0.7rem; /* Reduced from 0.8rem */
+  font-size: 0.7rem;
   color: #cccccc;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
 }
 
 .comparison-item .value {
-  font-size: 0.85rem; /* Reduced from 1rem */
+  font-size: 0.8rem;
   font-weight: 600;
-  padding: 4px 8px; /* Reduced from 6px 12px */
-  border-radius: 4px;
+  padding: 4px 8px;
+  border-radius: 3px;
 }
 
 .comparison-item .value.correct {
@@ -479,9 +480,9 @@ body {
   background: linear-gradient(45deg, #059669, #10b981);
   color: white;
   border: none;
-  padding: 8px 16px; /* Reduced from 12px 25px */
+  padding: 8px 16px;
   border-radius: 6px;
-  font-size: 0.85rem; /* Reduced from 1rem */
+  font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -490,7 +491,7 @@ body {
   gap: 6px;
   margin: 0 auto;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 .next-hand-btn:hover {
@@ -502,39 +503,64 @@ body {
 /* Mobile Optimizations */
 @media (max-width: 768px) {
   .practice-container {
-    padding: 6px;
+    padding: 5px;
+  }
+  
+  .practice-header {
+    padding: 4px;
+    margin-bottom: 4px;
   }
   
   .practice-header h1 {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
   
   .header-content {
-    flex-direction: column;
+    flex-direction: row;
     gap: 8px;
-    text-align: center;
+    text-align: left;
+    margin-bottom: 4px;
   }
   
   .stats-section {
     flex-direction: row;
-    justify-content: center;
-    gap: 10px;
+    gap: 6px;
     min-width: auto;
+    font-size: 0.6rem;
+    padding: 4px;
   }
   
   .stat-item {
     flex-direction: column;
     text-align: center;
-    gap: 2px;
+    gap: 1px;
+  }
+  
+  .stat-label {
+    font-size: 0.5rem;
+  }
+  
+  .stat-value {
+    font-size: 0.6rem;
+  }
+  
+  .reset-stats-btn {
+    font-size: 0.5rem;
+    padding: 2px 4px;
+  }
+  
+  .practice-configuration {
+    padding: 2px;
   }
   
   .practice-configuration button {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     padding: 5px 6px;
   }
   
   .practice-table {
-    padding: 12px;
+    padding: 10px;
+    margin-bottom: 5px;
   }
   
   .dealer-section,
@@ -552,7 +578,11 @@ body {
   
   .playing-card {
     width: 45px;
-    height: 68px;
+    height: 65px;
+  }
+  
+  .card-container {
+    gap: 6px;
   }
   
   .card-suit {
@@ -562,6 +592,11 @@ body {
   .card-value-top,
   .card-value-bottom {
     font-size: 0.55rem;
+  }
+  
+  .decision-panel {
+    padding: 8px;
+    min-height: 80px;
   }
   
   .button-grid {
@@ -581,66 +616,89 @@ body {
   
   .action-comparison {
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
   }
   
   .feedback-message {
     font-size: 0.8rem;
-    padding: 6px 8px;
+    padding: 6px;
+    margin-bottom: 6px;
   }
   
   .next-hand-btn {
     padding: 6px 12px;
-    font-size: 0.75rem;
-  }
-  
-  .decision-panel {
-    min-height: 85px;
+    font-size: 0.7rem;
   }
 }
 
 @media (max-width: 480px) {
   .practice-container {
-    padding: 4px;
+    padding: 3px;
   }
   
   .practice-header {
-    padding: 8px;
-    margin-bottom: 6px;
+    padding: 3px;
+    margin-bottom: 3px;
   }
   
   .practice-header h1 {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .header-content {
+    margin-bottom: 3px;
   }
   
   .stats-section {
-    flex-direction: column;
-    gap: 6px;
+    flex-direction: row;
+    gap: 4px;
+    padding: 3px;
+    font-size: 0.55rem;
+  }
+  
+  .stat-label {
+    font-size: 0.45rem;
+  }
+  
+  .stat-value {
+    font-size: 0.55rem;
+  }
+  
+  .reset-stats-btn {
+    font-size: 0.45rem;
+    padding: 1px 3px;
   }
   
   .practice-configuration {
     flex-wrap: wrap;
-    gap: 3px;
+    gap: 2px;
   }
   
   .practice-configuration button {
-    flex: 1 1 calc(50% - 2px);
-    min-width: 75px;
-    font-size: 0.55rem;
+    flex: 1 1 calc(50% - 1px);
+    min-width: 70px;
+    font-size: 0.5rem;
+    padding: 4px 5px;
   }
   
   .practice-table {
     padding: 8px;
+    margin-bottom: 3px;
+  }
+  
+  .dealer-section,
+  .player-section {
+    padding: 6px;
     margin-bottom: 6px;
   }
   
   .playing-card {
     width: 40px;
-    height: 60px;
+    height: 58px;
   }
   
   .card-container {
-    gap: 5px;
+    gap: 4px;
   }
   
   .card-suit {
@@ -654,97 +712,107 @@ body {
   
   .button-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 5px;
+    gap: 4px;
   }
   
   .decision-btn {
     padding: 6px 4px;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     min-height: 40px;
   }
   
   .decision-panel {
-    padding: 8px;
-    min-height: 75px;
+    padding: 6px;
+    min-height: 70px;
   }
   
   .feedback-message {
-    font-size: 0.75rem;
-    padding: 5px 8px;
+    font-size: 0.7rem;
+    padding: 5px;
+    margin-bottom: 4px;
   }
   
   .next-hand-btn {
     padding: 5px 10px;
+    font-size: 0.65rem;
+  }
+  
+  .comparison-item .label {
+    font-size: 0.6rem;
+  }
+  
+  .comparison-item .value {
     font-size: 0.7rem;
+    padding: 3px 6px;
   }
 }
 
 /* Landscape phone optimization */
 @media (max-width: 768px) and (orientation: landscape) {
   .practice-container {
-    padding: 4px;
+    padding: 3px;
   }
   
   .practice-header {
-    padding: 6px;
-    margin-bottom: 4px;
+    padding: 4px;
+    margin-bottom: 3px;
   }
   
   .practice-header h1 {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .header-content {
     flex-direction: row;
-    gap: 12px;
+    gap: 10px;
   }
   
   .stats-section {
     flex-direction: row;
-    gap: 8px;
+    gap: 6px;
   }
   
   .practice-table {
     padding: 6px;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
   
   .dealer-section,
   .player-section {
     flex-direction: row;
-    padding: 6px;
-    margin-bottom: 6px;
+    padding: 5px;
+    margin-bottom: 5px;
   }
   
   .playing-card {
     width: 35px;
-    height: 52px;
+    height: 50px;
   }
   
   .decision-panel {
-    padding: 6px;
+    padding: 5px;
     min-height: 60px;
   }
   
   .decision-btn {
-    padding: 6px 4px;
-    font-size: 0.65rem;
+    padding: 5px 4px;
+    font-size: 0.6rem;
     min-height: 35px;
   }
   
   .button-grid {
     grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
+    gap: 3px;
   }
   
   .feedback-message {
     font-size: 0.7rem;
-    padding: 4px 6px;
-    margin-bottom: 4px;
+    padding: 4px;
+    margin-bottom: 3px;
   }
   
   .next-hand-btn {
     padding: 4px 8px;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
   }
 }
