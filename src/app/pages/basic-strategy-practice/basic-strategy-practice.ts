@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Blackjack } from '../../services/blackjack';
 import { Card } from '../../models/card';
-import { CommonModule } from '@angular/common';
+import { CommonModule, provideCloudinaryLoader } from '@angular/common';
 import { Hand } from '../../models/hand';
 
 interface BasicStrategyDecision {
@@ -21,10 +21,12 @@ export class BasicStrategyPractice implements OnInit {
   playerHand: Hand = new Hand([], 0);
   dealerHand: Card[] = [];
   dealerUpCard: Card | null = null;
+  
 
   //Settings:
   dasAlloowed: boolean = true;
-  
+  practiceMode: string = "all";
+
   // Practice state
   practiceState: 'waiting' | 'decision' | 'feedback' = 'waiting';
   playerAction: string = '';
@@ -86,36 +88,85 @@ export class BasicStrategyPractice implements OnInit {
     this.deck = this.BlackjackService.initDeck();
     this.shoe = this.BlackjackService.initShoe(6, this.deck);
     this.shoe = this.BlackjackService.splitShoe(this.shoe, 70);
+    
     this.dealNewHand();
   }
 
-  dealNewHand() {
-    this.playerHand = new Hand([], 0);
-    this.dealerHand = [];
-    
+  practiceSet(modeChoice: string){
+    this.practiceMode = modeChoice;
+    //After change of mode hand is dealt againg
+    this.dealNewHand();
+  }
+
+  
+dealNewHand() {
+  this.playerHand = new Hand([], 0);
+  this.dealerHand = [];
+
+  // Check in case of split mode
+  if (this.practiceMode == "same") {
+    this.playerHand.Hit(this.dealCard()); 
+    this.playerHand.Hit(this.dealCard()); // Fixed: added missing parentheses and dealCard() call
+  } else {
     // Deal two cards to player
-    this.playerHand.Hit(this.dealCard());
-    this.playerHand.Hit(this.dealCard());
-    
-    // Deal one up card to dealer
-    this.dealerUpCard = this.dealCard();
-    this.dealerHand = [this.dealerUpCard];
-    
-    this.practiceState = 'decision';
-    this.playerAction = '';
-    this.correctAction = '';
-    this.feedback = '';
-    this.isCorrect = false;
+    this.playerHand.Hit(this.dealCardWithSettings()); // deals card and checks if the card can be dealt to the player
+    this.playerHand.Hit(this.dealCard()); 
   }
+  
+  // Deal one up card to dealer
+  this.dealerUpCard = this.dealCard();
+  this.dealerHand = [this.dealerUpCard];
+  
+  this.practiceState = 'decision';
+  this.playerAction = '';
+  this.correctAction = '';
+  this.feedback = '';
+  this.isCorrect = false;
+}
 
-  dealCard(): Card {
-    if (this.shoe.length === 0) {
-      this.initializePractice();
-      throw new Error('No more cards in the shoe');
+dealCardWithSettings(): Card { // Fixed: added return type
+  let ready: boolean = false; // Fixed: typo "redy" -> "ready"
+  let card: Card; // Declare card outside the loop
+  card = this.dealCard();
+
+  while (!ready) {
+    // Deals card initially
+    card = this.dealCard();
+
+    // Based on the settings changes the card dealt
+    switch (this.practiceMode) {
+      case "all":
+        ready = true;
+        break; // Added break statement
+      case "hard":
+        if (card.rank == "Ace") {
+          // Continue loop to deal another card
+          break;
+        } else {
+          ready = true;
+        }
+        break;
+      case "soft":
+        if (card.rank != "Ace") {
+          // Continue loop to deal another card
+          break;
+        } else {
+          ready = true;
+        }
+        break;
     }
-    return this.shoe.pop()!;
   }
+  
+  return card; // Return the final card
+}
 
+dealCard(): Card {
+  if (this.shoe.length === 0) {
+    this.initializePractice();
+    throw new Error('No more cards in the shoe');
+  }
+  return this.shoe.pop()!;
+}
   makeDecision(action: string) {
     if (this.practiceState !== 'decision') return;
     

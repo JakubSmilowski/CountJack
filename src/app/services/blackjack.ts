@@ -70,6 +70,7 @@ export class Blackjack implements OnInit {
     return shoe;
    }
 
+
    
 
 

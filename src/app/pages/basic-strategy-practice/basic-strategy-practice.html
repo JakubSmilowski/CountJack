@@ -1,7 +1,15 @@
 <div class="practice-container">
-  <!-- Header with Statistics -->
+  <!-- Header with Statistics and configuration -->
   <div class="practice-header">
     <h1>Basic Strategy Practice</h1>
+    <div class="practice-configuration">
+      <h2>What do you want to practice?</h2>
+      <button (click)="practiceSet('all')" >All combined</button>
+      <button (click)="practiceSet('hard')">Hard hands</button>
+      <button (click)="practiceSet('soft')">Soft hands</button>
+      <button (click)="practiceSet('same')">Same cards</button>
+    </div>
+
     <div class="stats-section">
       <div class="stat-item">
         <span class="stat-label">Accuracy:</span>
